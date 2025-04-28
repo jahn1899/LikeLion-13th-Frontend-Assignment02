@@ -1,0 +1,61 @@
+body {
+    background-color: #4B0082; /* 바깥 배경 보라색 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* 투두리스트 박스 */
+  .container {
+    background-color: white; /* 흰색 박스 */
+    padding: 20px;
+    border-radius: 8px;
+    width: 350px;
+  }
+  
+  /* 입력창과 버튼 묶음 */
+  .input-group {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  /* 입력창 스타일 */
+  #todoInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  /* 버튼 스타일 */
+  #addBtn {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+  
+  /* 리스트 스타일 */
+  #todoList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #todoList li {
+    display: flex;
+    align-items: center;
+    padding: 10px 5px;
+    border-bottom: 1px solid #eee; /* 리스트 간 구분선 */
+  }
+  
+  /* 체크박스 스타일 */
+  input[type=\"checkbox\"] {
+    width: 18px;
+    height: 18px;
+    accent-color: green; /* 체크됐을 때 초록색 체크 표시 */
+  }
