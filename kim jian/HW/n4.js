@@ -17,7 +17,7 @@ function solution(a, b) {
 
     return {
          덧셈 : add(a, b),
-         뺄셈 : 녀ㅠ(a, b),
+         뺄셈 : sub(a, b),
          곱셉 : mul(a, b),
          나눗셈 : div(a, b)
     };

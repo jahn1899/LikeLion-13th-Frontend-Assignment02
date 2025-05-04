@@ -1,50 +1,33 @@
-const todos = []; 
-
-const todoInput = document.getElementById('todoInput');
-const addBtn = document.getElementById('addBtn');
-const todoList = document.getElementById('todoList');
+const todos = [];
 
 function addTodo() {
-  const todoText = todoInput.value.trim();
-  if (todoText !== '') {
-    todos.push({ text: todoText, completed: false }); 
-    todoInput.value = '';
-    renderTodo();
+  const input = document.getElementById("todoInput");
+  const value = input.value.trim();
+  if (value) {
+    todos.push(value);
+    input.value = "";
+    renderTodos();
   }
 }
 
-function renderTodo() {
-  todoList.innerHTML = '';
-
-  todos.forEach((todo, index) => {
-    const li = document.createElement('li');
-
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.checked = todo.completed;
-
-    const span = document.createElement('span');
-    span.textContent = todo.text;
-
-    if (todo.completed) {
-      span.classList.add('completed');
-    }
-
-    checkbox.addEventListener('change', function() {
-      todos[index].completed = checkbox.checked;
-      renderTodo();
-    });
-
-    li.appendChild(checkbox);
-    li.appendChild(span);
-    todoList.appendChild(li);
-  });
-}
-
-addBtn.addEventListener('click', addTodo);
-
-todoInput.addEventListener('keydown', function(event) {
-  if (event.key === 'Enter') {
+document.getElementById("todoInput").addEventListener("keyup", function (event) {
+  if (event.key === "Enter") {
     addTodo();
   }
 });
+
+function renderTodos() {
+  const list = document.getElementById("todoList");
+  list.innerHTML = "";
+  todos.forEach((todo, index) => {
+    const li = document.createElement("li");
+    li.textContent = todo;
+    li.onclick = () => removeTodo(index);
+    list.appendChild(li);
+  });
+}
+
+function removeTodo(index) {
+  todos.splice(index, 1);
+  renderTodos();
+}
